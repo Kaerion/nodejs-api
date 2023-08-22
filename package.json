@@ -1,0 +1,34 @@
+{
+  "name": "nodejs-api",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "NodeJs api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaerion/nodejs-api.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "express",
+    "kaerion"
+  ],
+  "author": "Kaerion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kaerion/nodejs-api/issues"
+  },
+  "homepage": "https://github.com/Kaerion/nodejs-api#readme",
+  "devDependencies": {
+    "semistandard": "^17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "semistandard"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
