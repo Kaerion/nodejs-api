@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 });
 
 /** Obtener todas las peliculas o filtrado por genero.
- * Si queremos filtrar por algun tipo de dato, se usa el req.query
+ * Prueba de varios filtrados con req.query
 */
 app.get('/movies', (req, res) => {
   const { genre, year } = req.query;
@@ -39,7 +39,7 @@ app.get('/movies/:id', (req, res) => {
 });
 
 // Peliculas por genero
-/* app.get('/movies/genre/:genre', (req, res) => {
+app.get('/movies/genre/:genre', (req, res) => {
   const genre = req.params.genre;
   console.log(genre);
   const moviesByGenre = movies.filter(
@@ -49,7 +49,7 @@ app.get('/movies/:id', (req, res) => {
   } else {
     res.status(404).json({ message: 'Movies not found with this genre' });
   }
-}); */
+});
 
 /** Puerto http en escucha. */
 const PORT = process.env.PORT ?? 1234;
