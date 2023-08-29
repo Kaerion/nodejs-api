@@ -10,6 +10,7 @@ app.use(express.json()); // Funcion para traer cuerpo de request con express
 app.disable('x-powered-by');
 
 // Solucion para CORS de metodos complejos (PUT, PATCH, DELETE)
+// app.use(cors()); origin: * Con esto funcionaria
 app.use(cors({
   origin: (origin, callback) => {
     const ACCEPTED_ORIGINS = [
