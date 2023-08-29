@@ -9,3 +9,25 @@ GET http://localhost:1234/movies?year=1999&genre=sci-fi
 
 ###
 GET http://localhost:1234/movies/genre/Drama
+
+### Crear pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "El Irlandes",
+    "year": 2021,
+    "director": "Martin Scorsese",
+    "duration": 180,
+    "poster": "https://es.web.img3.acsta.net/r_1920_1080/pictures/19/09/16/18/04/3205974.jpg",
+    "genre": ["Drama"],
+    "rate": 8.2
+}
+
+### Actualizar pelicula
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+    "year": 1995
+}
