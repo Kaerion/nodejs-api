@@ -1,13 +1,13 @@
 import cors from 'cors';
 
-export const corsMiddleware = cors({
-  origin: (origin, callback) => {
-    const ACCEPTED_ORIGINS = [
-      'http://localhost:8080',
-      'http://localhost:1234'
-    ];
+const ACCEPTED_ORIGINS = [
+  'http://localhost:8080',
+  'http://localhost:1234'
+];
 
-    if (ACCEPTED_ORIGINS.includes(origin)) {
+export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
+  origin: (origin, callback) => {
+    if (acceptedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
