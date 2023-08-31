@@ -1,5 +1,6 @@
 import cors from 'cors';
 
+// TODO Esto falla, buscar error.
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:1234'

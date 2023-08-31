@@ -5,7 +5,7 @@ export class MoviesController {
   static async getAll (req, res) {
     try {
       const { genre, year } = req.query;
-      const movies = await MoviesModel.getAll(genre, year);
+      const movies = await MoviesModel.getAll({ genre, year });
       res.json(movies);
     } catch (error) {
     // Manejo de errores
@@ -16,7 +16,7 @@ export class MoviesController {
 
   static async getById (req, res) {
     const id = req.params.id;
-    const movie = await MoviesModel.getById(id);
+    const movie = await MoviesModel.getById({ id });
     if (movie) {
       return res.json(movie);
     } else {
@@ -26,7 +26,7 @@ export class MoviesController {
 
   static async getByGenre (req, res) {
     const genre = req.params.genre;
-    const moviesByGenre = await MoviesModel.getByGenre(genre);
+    const moviesByGenre = await MoviesModel.getByGenre({ genre });
     if (moviesByGenre) {
       return res.json(moviesByGenre);
     } else {
@@ -60,9 +60,9 @@ export class MoviesController {
 
   static async delete (req, res) {
     const { id } = req.params;
-    const result = await MoviesModel.delete(id);
+    const result = await MoviesModel.delete({ id });
 
-    if (!result) {
+    if (result === false) {
       return res.status(404).json({ message: 'Movie not Found.' });
     }
 

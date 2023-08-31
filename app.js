@@ -6,12 +6,13 @@ import { corsMiddleware } from './middlewares/cors.js';
 const app = express();
 
 app.use(json()); // Funcion para traer cuerpo de request con express
-app.use('/movies', router); // Enrutador de /movies
-app.disable('x-powered-by'); // Elimina express ad
 
 // Solucion para CORS de metodos complejos (PUT, PATCH, DELETE)
-// app.use(cors()); origin: * Con esto funcionaria
-app.use(corsMiddleware);
+app.use(corsMiddleware()); // origin: * Con esto funcionaria
+app.use('/movies', router); // Enrutador de /movies
+/* app.use(cors()); */
+
+app.disable('x-powered-by'); // Elimina express ad
 
 /** Puerto http en escucha. */
 const PORT = process.env.PORT ?? 1234;
